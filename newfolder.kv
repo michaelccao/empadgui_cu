@@ -1,0 +1,28 @@
+<NewFolder@DragPopup>:
+    size: 200, 125
+    size_hint: None, None
+    title: 'Create New Folder'
+    auto_dismiss: False
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        TextInput:
+            id: fname
+            height: 30
+            size_hint_y: None
+        
+        BoxLayout:
+            orientation: 'horizontal'    
+
+            Button:
+                text: 'Create Folder'
+                size: 100, 25
+                size_hint: None, None
+                on_release: root.create_new_folder(fname.text)
+    
+            Button:
+                text: 'Close'
+                size: 75, 25
+                size_hint: None, None
+                on_release: root.close()

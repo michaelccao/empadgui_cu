@@ -1,0 +1,102 @@
+<FNameParam>:
+    canvas:
+        Color:
+            rgb: 0.2, 0.2, 0.2
+        Rectangle:
+            pos: root.x, root.y
+            size: 300, 280
+
+    orientation: 'vertical'
+    size: 300, 275
+    size_hint: None, None
+
+    
+
+    imnum: imnum
+    sample: sample
+    mag: mag
+    cam: cam
+    ap: ap
+    conv: conv
+    spot: spot
+
+    aparam: (imnum.pcheck.active, sample.pcheck.active, mag.pcheck.active, cam.pcheck.active, ap.pcheck.active, conv.pcheck.active, spot.pcheck.active)
+    oparam: (imnum.ord.text, sample.ord.text, mag.ord.text, cam.ord.text, ap.ord.text, conv.ord.text, spot.ord.text)
+    tparam: (imnum.ptext.text, sample.ptext.text, mag.ptext.text, cam.ptext.text, ap.ptext.text, conv.ptext.text, spot.ptext.text)
+    num_active: sum(root.aparam)
+    porders: root.re_order(self.aparam, self.oparam)
+    
+    restore_old: root.restore_state()
+
+    Param:
+        id: imnum
+        name: 'Image #'
+        filter: 'int'
+        num_param_active: root.num_active
+    Param:
+        id: sample
+        name: 'Sample'
+        num_param_active: root.num_active
+    Param:
+        id: mag
+        name: 'Mag'
+        num_param_active: root.num_active
+    Param:
+        id: cam
+        name: 'Camera Length'
+        num_param_active: root.num_active
+    Param:
+        id: ap
+        name: 'Aperture Size'
+        num_param_active: root.num_active
+    Param:
+        id: conv
+        name: 'Convergence Angle'
+        num_param_active: root.num_active
+    Param:
+        id: spot
+        name: 'Spot Size'
+        num_param_active: root.num_active
+        tab: True
+    
+    Widget:
+        height: 10
+        size_hint_y: None
+
+    
+
+<Param@BoxLayout>:
+    orientation: 'vertical'
+    name: 'parameter name'
+    ptext: ptext
+    pcheck: pcheck
+    num_param_active: 0
+    ord: ord
+    tab: False
+
+    BoxLayout:
+        orientation: 'horizontal'
+        height: 40
+        size_hint_y: None
+        FNameInput:
+            id: ptext
+            hint_text: root.name
+            multiline: False
+            height: 30
+            width: 250
+            size_hint: None, None
+            write_tab: root.tab
+        CheckBox:
+            id: pcheck
+        Order:
+            id: ord
+            active: pcheck.active
+            maxvalue: root.num_param_active
+            text: ''
+            
+
+<Order>:
+    maxvalue: 0
+    active: True
+    values: root.num_values(self.maxvalue) if self.active else []
+    text: ''

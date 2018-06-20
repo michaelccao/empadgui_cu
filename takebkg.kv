@@ -1,0 +1,49 @@
+<TakeBKG@DragPopup>:
+    size: 350, 200
+    size_hint: None, None
+    title: 'Take Background Images'
+    auto_dismiss: False
+
+    BoxLayout:
+        orientation: 'vertical'
+        BoxLayout:
+            orientation: 'horizontal'
+            Label:
+                text: 'Filename:'
+                size: self.texture_size
+                size_hint: None, None
+                pos_hint: {'center_y': 0.5}
+            TextInput:
+                id: filename
+                text: 'Filename'
+                height: 30
+                size_hint_y: None
+                pos_hint: {'center_y': 0.5}
+        BoxLayout:
+            orientation: 'horizontal'
+            Label:
+                text: '# Images:'
+                size: self.texture_size
+                size_hint: None, None
+                pos_hint: {'center_y': 0.5}
+            TextInput:
+                id: numimages
+                text: '10000'
+                height: 30
+                width: 100
+                input_filter: 'int'
+                size_hint_y: None
+                size_hint_x: None
+                pos_hint: {'center_y': 0.5}
+        BoxLayout:
+            orientation: 'horizontal'
+            Button:
+                size: 75, 25
+                size_hint: None, None
+                text: 'Ok'
+                on_release: root.takebkg(filename.text, numimages.text)
+            Button:
+                size: 75, 25
+                size_hint: None, None
+                text: 'Cancel'
+                on_release: root.dismiss()

@@ -1,0 +1,57 @@
+<ChangeDir@DragPopup>:
+    size: 500, 550
+    size_hint: None, None
+    title: 'Change Save Directory'
+    auto_dismiss: False
+    
+
+    drives: drives
+    fchoose: fchoose
+    rootpath: None
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        FileChooserListView:
+            id: fchoose
+            rootpath: drives.text
+            path: drives.text
+            
+
+        Label:
+            text: fchoose.path
+            size: self.texture_size
+            size_hint: None, None
+            
+        BoxLayout:
+            orientation: 'horizontal'
+            height: 50
+            size_hint_y: None
+
+            Spinner:
+                id: drives
+                size: 75, 25
+                size_hint: None, None
+
+            Button:
+                text: 'Choose Folder'
+                size: 125, 25
+                size_hint: None, None
+                on_release: app.change_save_path(root, fchoose)
+
+            Button:
+                text: 'New Folder'
+                size: 100, 25
+                size_hint: None, None
+                on_release: root.new_folder(fchoose.path)
+
+            Button:
+                text: 'Close'
+                size: 75, 25
+                size_hint: None, None
+                on_release: root.dismiss()
+
+
+
+<SpinnerOption>:
+    height: 25
