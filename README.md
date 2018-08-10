@@ -26,3 +26,11 @@ Possible adjustments that need to be made:
 to the correct file names.
 
 Using the GUI:
+1) Launch using the desktop shortcut
+2) Press Power to power the chip.  Process takes about 1-2 minutes.  Watch camserver log to make sure all commands are done executing
+3) Press TakeBKG to take background images
+4) Press Change Dir button to change save directory.  This is very important on the first run after installation as the current save directory will be wrong.
+5) BEFORE DOING THIS, MAKE SURE NO OTHER DETECTOR IS IN THE WAY.  THIS SOFTWARE DOES NOT STOP YOU FROM CRASHING THE EMPAD INTO AN ALREADY PRESENT DETECTOR UNLIKE THE FEI SOFTWARE.  Press Insert to insert detector
+6) Press either Live for a continuous scan or Acquire for a single scan that will be saved
+6a) While scanning, you can always change whether to stop the scan or save the current ongoing scan.
+6b) Never start a new scan until current scan is finished.  Doing so will result in weird data.
