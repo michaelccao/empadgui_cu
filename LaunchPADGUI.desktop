@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
-Exec=/home/empad/Desktop/empadgui_cu/LaunchPADGUI.sh
-Icon=/home/empad/Desktop/empadgui_cu/EMPAD.png
+Exec=/home/empad/Desktop/empadgui_cu-master/LaunchPADGUI.sh
+Icon=/home/empad/Desktop/empadgui_cu-master/EMPAD.png
 Name=Launch PADGUI
 GenericName=PADGUI
 Comment=Launch PADGUI
