@@ -713,7 +713,7 @@ Builder.load_string("""
     y_slider: y
     y_slider2: y2
     y_value: y_value
-    y_valu2: y_value2
+    y_value2: y_value2
     
     size_slider: size
     size_slider2: size2
