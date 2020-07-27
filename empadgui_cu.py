@@ -2497,7 +2497,7 @@ class PADGUI(App):
     
 
     def save_state(self):
-        with open('last_state.csv', 'w') as file:
+        with open('last_state.csv', 'w', newline = '') as file:
             writer = csv.writer(file, delimiter = ' ', quotechar='|', quoting = csv.QUOTE_MINIMAL)
             writer.writerow(self.FNP.tparam)
             writer.writerow(self.FNP.num_order)
